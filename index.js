@@ -22,17 +22,19 @@ function Line(x, y) {
     ctx.moveTo(this.x, this.y);
     ctx.lineTo(this.x, this.y + LINE_LENGTH - 2);
     // ctx.rotate(45 * Math.PI / 180);
-    ctx.stroke();
   };
 }
 
 function animate() {
-  // requestAnimationFrame(animate);
+  requestAnimationFrame(animate);
   ctx.clearRect(0, 0, innerWidth, innerHeight);
+  ctx.beginPath();
 
   lines.forEach(line => {
     line.draw();
   });
+
+  ctx.stroke();
 }
 
 animate();
